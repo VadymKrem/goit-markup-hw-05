@@ -29,6 +29,7 @@ body {
   --color-address: #404bbf;
   --color-icon: #8e8f99;
   --color-hover-footer-icon: #31d0aa;
+  --hover-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .section {
   padding-top: 120px;
@@ -73,8 +74,23 @@ body {
   letter-spacing: 0.02em;
   color: var(--color-nav);
   text-decoration: none;
-}
 
+  transition: color var(--hover-transition);
+  position: relative;
+}
+.nav-link.current::after {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 4px;
+  left: 0px;
+  width: 100%;
+  top: 40px;
+  pointer-events: none;
+
+  background: var(--color-address);
+  border-radius: 2px;
+}
 .logo-text {
   font-family: "Raleway";
   font-weight: 800;
@@ -118,6 +134,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  transition: color var(--hover-transition);
 }
 
 .address-list-item:hover,
@@ -191,6 +208,8 @@ body {
   padding: 16px 32px;
   display: block;
   border-radius: 4px;
+
+  transition: background var(--hover-transition);
 }
 /* Features section */
 .list-features-icon,
@@ -300,6 +319,8 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+
+  transition: background-color var(--hover-transition);
 }
 
 .item-team {
@@ -336,6 +357,8 @@ body {
   width: 168px;
   height: 88px;
   fill: var(--color-icon);
+
+  transition: border-color var(--hover-transition), fill var(--hover-transition);
 }
 .customers-link:is(:hover, :focus) {
   fill: var(--color-address);
@@ -414,6 +437,8 @@ body {
   height: 100%;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+
+  transition: background-color var(--hover-transition);
 }
 .footer-link:is(:hover, :focus) {
   background-color: var(--color-hover-footer-icon);
@@ -449,6 +474,10 @@ body {
   padding: 12px 24px;
   border: 1px solid var(--color-footer);
   border-radius: 4px;
+
+  transition: color var(--hover-transition),
+    background-color var(--hover-transition),
+    border-color var(--hover-transition), box-shadow var(--hover-transition);
 }
 .filters-list {
   list-style-type: none;
@@ -466,8 +495,31 @@ body {
 }
 .card-item {
   list-style-type: none;
-  /* border: 1px solid var(--color-footer);
-  background: var(--color-background); */
+
+  transition: transform var(--hover-transition);
+}
+.card-wrap-cover {
+  position: relative;
+  overflow: hidden;
+}
+.card-item:hover .text-cover {
+  transform: translateY(0);
+}
+.text-cover {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--color-btn);
+  background: #4d5ae5;
+  background-blend-mode: soft-light;
+  mix-blend-mode: normal;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform: translateY(100%);
+  transition: transform 250ms linear;
+  padding: 40px 32px 164px 32px;
 }
 .title-card {
   font-weight: 500;
@@ -494,6 +546,8 @@ body {
   display: block;
   border: 1px solid var(--color-footer);
   background: var(--color-background);
+
+  transition: border var(--hover-transition), box-shadow var(--hover-transition);
 }
 .link-portfolio-cards:is(:hover, :focus) {
   border: 1px solid var(--color-btn);
