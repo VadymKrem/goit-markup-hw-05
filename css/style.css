@@ -39,9 +39,7 @@ body {
 /* Header */
 .header-main {
   border-bottom: 1px solid var(--color-footer);
-  padding-top: 24px;
-  padding-bottom: 24px;
-  /* height: 76px; */
+  height: 76px;
 }
 .container {
   width: 1158px;
@@ -78,6 +76,7 @@ body {
   color: var(--color-nav);
   text-decoration: none;
 
+  display: block;
   padding-top: 24px;
   padding-bottom: 28px;
 
@@ -87,6 +86,7 @@ body {
   display: block;
   content: "";
   position: absolute;
+
   height: 4px;
   left: 0px;
   width: 100%;
@@ -107,6 +107,8 @@ body {
   text-decoration: none;
 
   margin-right: 76px;
+  padding-top: 24px;
+  padding-bottom: 28px;
 }
 .logo-color {
   color: var(--color-change-logo);
